@@ -20,7 +20,8 @@
 				submitFunction: '&',
 				visible: '=',
 				infiniteScroll: '&',
-                expandOnNew: '='
+                expandOnNew: '=',
+				initialStateHidden: '='
 			},
 			link: link,
 			controller: ChatCtrl,
@@ -82,6 +83,10 @@
 		vm.toggle = toggle;
 		vm.close = close;
 		vm.submitFunction = submitFunction;
+
+		if ($scope.initialStateHidden) {
+			toggle();
+		}
 
 		function submitFunction() {
 			$scope.submitFunction()(vm.writingMessage, vm.username);
